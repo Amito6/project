@@ -1,22 +1,99 @@
 [
-    {
-        "label" : "Dashboard",
-        "icon" : "dashboard"
-    },
-    {
-        "label" : "Analytics",
-        "icon" : "analytics"
-    },
-    {
-        "label" : "Inventory",
-        "icon" : "inventory"
-    },
-    {
-        "label" : "Inbox",
-        "icon" : "inbox"
-    },
-    {
-        "label" : "Logout",
-        "icon" : "logout"
-    }
+  { "cat" : "DASHBOARD",
+   "menus" : [
+        {
+            "label" : "Modern",
+            "icon" : "airplay",
+            "link": "modern"
+        },
+        {
+            "label" : "Analytics",
+            "icon" : "analytics",
+            "link": "analytics"
+        },
+        {
+            "label" : "Inventory",
+            "icon" : "inventory",
+            "link": "inventory"
+        }
+   ]
+  },
+  { "cat" : "DASHBOARD",
+  "menus" : [
+       {
+           "label" : "Modern",
+           "icon" : "airplay",
+           "link": "modern"
+       },
+       {
+           "label" : "Analytics",
+           "icon" : "analytics",
+           "link": "analytics"
+       },
+       {
+           "label" : "Inventory",
+           "icon" : "inventory",
+           "link": "inventory"
+       }
+  ]
+ },
+  {
+    "cat" : "Apps",
+    "menus" : [
+        {
+            "label" : "Customer",
+            "icon" : "group",
+            "isDropDown": true,
+            "dropDownMenu":[
+                {
+                    "label" : "List",
+                    "icon" : "list",
+                    "link" : "customer-list"
+                },
+                {
+                    "label" : "Add New",
+                    "icon" : "add",
+                    "link" : "customer-add"
+                },
+                {
+                    "label" : "Edit",
+                    "icon" : "edit",
+                    "link" : "customer-edit"
+                }
+
+            ]
+        },
+        {
+            "label" : "Inbox",
+            "icon" : "inbox",
+            "link": "inbox"
+        },
+        {
+            "label" : "Mail",
+            "icon" : "mail",
+            "link": "mail"
+        } 
+        ,
+        {
+            "label" : "Chat",
+            "icon" : "chat_bubble_outlined",
+            "link": "chat"
+        } 
+    ]
+  },
+  {
+    "cat" : "AUTHENTICATIONS",
+    "menus" : [
+        {
+            "label" : "Reset password",
+            "icon" : "password",
+            "link": "reset-password"
+        },
+        {
+            "label" : "Logout",
+            "icon" : "logout",
+            "link": "logout"
+        } 
+    ]
+  }
 ]

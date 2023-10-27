@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import Signup from "./Component/Signup/Signup";
 import Login from "./Component/Login/Login";
 import Admin from "./Component/Admin-panel/Admin";
@@ -21,3 +22,4 @@ const App = () =>{
 }
 
 export default App;
+

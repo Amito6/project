@@ -1,49 +1,81 @@
 import { Stack,Drawer,Box,List,ListItem,ListItemIcon,ListItemButton,ListItemText,AppBar,IconButton,Toolbar,LinkComponent} from "@mui/material";
 import { Link,Outlet } from "react-router-dom";
-import {Dashboard,Menu,Logout} from '@mui/icons-material';
 import { useState } from "react";
+
+import adminMenu from "../../json-api/menu.json"
+
 
 
 const Admin =() =>{
 
-    const [active,setActive] = useState(false);
+    const [active,setActive] = useState(true);
+    const [width,setWidth] = useState(250);
 
+    const controlDrawer = () =>{
+            setActive(!active);
+            active ? setWidth(0) : setWidth(250)
+            
+    }
+    
+    const Nav = ({item}) =>{
+        const navDesign = (
+            <>
+             <ListItem disablePadding>
+               <ListItemButton>
+                <ListItemIcon>
+                    <span class="material-icons">{item.icon}</span>
+                </ListItemIcon>
+               <ListItemText primary={item.label} />
+              </ListItemButton>
+             </ListItem>
+            </>
+        );
+        return navDesign
+    }
 
     const design = (
         <>
-        <Drawer open = {active} onClick={()=>setActive(!active)}>
-            <Box sx={{width:200}}>
-                <list>
-                <ListItem disablePadding>
-                   <ListItemButton LinkComponent={ Link } to="dashboard">
-                    <ListItemIcon>
-                     <Dashboard />
-                    </ListItemIcon>
-                   <ListItemText primary="Dashboard" />
-                  </ListItemButton>
-               </ListItem>
-                </list>
-            </Box>
+       <Stack>
+        <Drawer variant="persistent"
+        open={active}
+        sx= {{
+            width: width,
+            "& .MuiDrawer-paper" : {
+                width : width,
+                bgcolor:"#f5f5f8",
+                transition : ".3s"
+            }
+        }}>
+            <List>
+            {
+                adminMenu.map((item,index)=>{
+                    return <Nav key={index} item={item} />
+                })
+            }
+            </List>
         </Drawer>
-        <Stack>
-            <AppBar sx={{background:"white"}} position="static">
-               <Stack direction={"row"} justifyContent={"space-between"}>
-               <Toolbar>
-                 <IconButton onClick={()=>setActive(!active)}>
-                   <Menu />
+        <AppBar
+        sx={{
+            position : "fixed",
+            width : `calc(100% - ${width}px)`,
+            transition : ".3s"
+        }}>
+            <Toolbar>
+                <IconButton color="inherit" onClick={controlDrawer}>
+                    <span class="material-icons">menu</span>
                 </IconButton>
-              </Toolbar>
-              <Toolbar>
-                 <IconButton>
-                   <Logout />
-                </IconButton>
-              </Toolbar>
-               </Stack>
-            </AppBar>
-            <Box>
-                <Outlet />
-            </Box>
+            </Toolbar>
+        </AppBar>
+        <Stack
+        sx={{
+            ml:`${width}px`,
+            p:3,
+            mt:4,
+            transition : ".3s"
+        }}>
+            <h1>Just for code</h1>
         </Stack>
+       </Stack>
         </>
 
     );

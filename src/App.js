@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import 'material-icons/iconfont/material-icons.css';
 
 import Signup from "./Component/Signup/Signup";
 import Login from "./Component/Login/Login";

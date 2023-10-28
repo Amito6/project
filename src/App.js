@@ -6,10 +6,26 @@ import Login from "./Component/Login/Login";
 import Admin from "./Component/Admin-panel/Admin";
 import PageNotFound from "./Component/Page-Not-Found/Page-Not-Found";
 import Dashboard from "./Component/Admin-panel/Dashboard/Dashboard";
+import { ThemeProvider, createTheme } from "@mui/material";
+import { deepPurple,lime,pink,deepOrange,teal } from "@mui/material/colors";
+import "@fontsource/poppins/500.css";
 
 const App = () =>{
+  
+  const theme = createTheme({
+    palette:{
+      primary: deepPurple,
+      success:lime,
+      error: pink,
+    },
+    typography : {
+      fontFamily: "Poppins"
+    }
+  })
+
   const design = (
     <>
+    <ThemeProvider theme={theme}>
     <Router>
       <Routes>
         <Route path="/" element={<Signup />} />
@@ -21,6 +37,7 @@ const App = () =>{
         <Route path="/*" element={<PageNotFound />} />
       </Routes>
     </Router>
+    </ThemeProvider>
     </>
   );
   return design;
